@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import AboutUs from "./AboutUs";
 
 const Payment = () => {
   const { product } = useLocation().state || {};
@@ -56,6 +57,8 @@ const Payment = () => {
           </button>
         </form>
       </div>
+      <hr />
+      <AboutUs/>
     </div>
   );
 };

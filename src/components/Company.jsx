@@ -1,10 +1,12 @@
 import React from 'react'
 import AboutUs from './AboutUs';
+import pic from  './images/de9f63a2b123aeb3e3b63f4613fe8f4b.jpg'
 
 const Company = () => {
   return (
     <div>
       <h1>Vintage Gem Old Money Fits</h1> <br />
+      <img src={pic} alt="" /> <br />
       <b>About us </b>
       <p>
         At Vintage Gem Old Money Fits, we embody the timeless elegance and
@@ -38,6 +40,7 @@ const Company = () => {
         a modern era. Step into a world where elegance is effortless, and
         refinement is a way of life.
       </p>
+      <hr />
       <AboutUs/>
     </div>
   );

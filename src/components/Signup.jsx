@@ -8,14 +8,28 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false); // State for toggling password visibility
 
-  //feedback system
+  // feedback system
   const [loading, setLoading] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
 
-  //fetching data
-  //append used to add data
+  // Function to generate a strong password
+  const generateStrongPassword = () => {
+    const length = 12; // length of the password
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}|;:,.<>?"; // characters allowed
+    let password = "";
+    
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      password += charset[randomIndex];
+    }
+    
+    setPassword(password); // Set the generated password in state
+  };
+
+  // Fetching data
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading("Connecting...");
@@ -26,7 +40,7 @@ const Signup = () => {
       formData.append("phone", phone);
       formData.append("password", password);
 
-      //posting the data(using axios)
+      // Posting the data (using axios)
       const response = await axios.post(
         "https://smile05.pythonanywhere.com/api/signup",
         formData
@@ -37,15 +51,16 @@ const Signup = () => {
       setError(error.message);
     }
   };
+
   return (
     <div className="row justify-content-center mt-4">
       <div className="col-md-6 card shadow p-2">
         <h1>Signup Form</h1>
-        {loading}
-        {success}
-        {error}
-        <form action="" onSubmit={handleSubmit}>
-          {/**the username input */}
+        {loading && <div>{loading}</div>}
+        {success && <div>{success}</div>}
+        {error && <div>{error}</div>}
+        <form onSubmit={handleSubmit}>
+          {/** the username input */}
           <input
             type="text"
             placeholder="Enter username"
@@ -56,7 +71,7 @@ const Signup = () => {
             }}
           />
           <br />
-          {/**the email input */}
+          {/** the email input */}
           <input
             type="email"
             placeholder="Enter email"
@@ -66,9 +81,8 @@ const Signup = () => {
               setEmail(e.target.value);
             }}
           />
-
           <br />
-          {/**the phone input */}
+          {/** the phone input */}
           <input
             type="tel"
             placeholder="Enter phone number"
@@ -79,18 +93,37 @@ const Signup = () => {
             }}
           />
           <br />
-          {/**the password input */}
-          <input
-            type="password"
-            placeholder="Enter password"
-            className="form-control"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          {/** the password input */}
+          <div className="password-field position-relative">
+            <input
+              type={showPassword ? "text" : "password"} // Toggle password visibility
+              placeholder="Enter password"
+              className="form-control"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <button
+              type="button"
+              className="btn btn-link position-absolute"
+              style={{ top: "50%", right: "10px", transform: "translateY(-50%)" }}
+              onClick={() => setShowPassword(!showPassword)} // Toggle the password visibility state
+            >
+              {showPassword ? "Hide" : "Show"}
+            </button>
+          </div>
           <br />
-          <button type="submit" className="btn btn-outline-secondary btn-sm ">
+          {/** Button to generate a strong password */}
+          <button
+            type="button"
+            className="btn btn-outline-secondary btn-sm mb-3"
+            onClick={generateStrongPassword}
+          >
+            Generate Strong Password
+          </button>
+          <br />
+          <button type="submit" className="btn btn-outline-secondary btn-sm">
             Sign up
           </button>
           <br />
@@ -99,7 +132,8 @@ const Signup = () => {
           </p>
         </form>
       </div>
-      <AboutUs/>
+      <hr />
+      <AboutUs />
     </div>
   );
 };

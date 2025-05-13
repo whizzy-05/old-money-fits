@@ -90,6 +90,7 @@ const AddProducts = () => {
           </button>
         </form>
       </div>
+      <hr />
       <AboutUs/>
     </div>
   );

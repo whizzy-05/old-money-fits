@@ -76,6 +76,7 @@ const Signin = () => {
           </p>
         </form>
       </div>
+      <hr />
       <AboutUs />
     </div>
   );

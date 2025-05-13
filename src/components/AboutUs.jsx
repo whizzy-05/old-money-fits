@@ -5,67 +5,53 @@ import x from "./images/x.png";
 
 export const AboutUs  = () => {
   return (
-    <div>
-      <section class="row bg-light">
-        <div class="col-md-4 text-dark">
-          <h4 class="text-center">About Us</h4>
-          <p>
-            For our services visit our offices in Nairobi.Afia centre second
-            floor
-          </p>
-          <p>
-            We also provide retail and wholesale services.Delivery is country
-            wide with no charges at all.For more information about us and our
-            services reach out our websites on facebook, instagram and twitter.
-          </p>
-        </div>
-        <div class="col-md-4 text-dark">
-          <b>For More Information</b>
-          <form action="">
-            <input
-              type="email"
-              placeholder="Enter your Email"
-              class="form-control"
-            />
-            <br />
-            <textarea
-              placeholder="Leave a comment"
-              rows="7"
-              class="form-control"
-            ></textarea>
-            <br />
-            <input
-              type="submit"
-              value="Send Message"
-              class="btn btn-outline-success"
-            />
-          </form>
-        </div>
-        <div class="col-md-4">
-          <h4 class="text-center text-dark">Stay Connected</h4>
-          <br />
-          <a href="#">
-            <img src={x} alt="" />
+    <div className="footer-section" style={{ backgroundColor: '#2c2f36' }}>
+    <section className="row py-5 px-3">
+      {/* Column 1 */}
+      <div className="col-md-4 text-white vintage-font">
+        <h4 className="text-center">About Us</h4>
+        <p>
+          For our services visit our offices in Nairobi. Afia Centre, Second Floor.
+        </p>
+        <p>
+          We also provide retail and wholesale services. Delivery is available countrywide with no charges at all...
+        </p>
+      </div>
+  
+      {/* Column 2 */}
+      <div className="col-md-4 text-light vintage-font">
+        <h4 className="text-center">For More Information</h4>
+        <form>
+          <input type="email" placeholder="Enter your Email" className="form-control mb-3 vintage-input" />
+          <textarea placeholder="Leave a comment" rows="7" className="form-control mb-3 vintage-input"></textarea>
+          <input type="submit" value="Send Message" className="btn btn-outline-light w-100" />
+        </form>
+      </div>
+  
+      {/* Column 3 */}
+      <div className="col-md-4 text-light vintage-font text-center">
+        <h4>Stay Connected</h4>
+        <div className="social-icons mb-3">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <img src={x} alt="Facebook" className="social-icon" />
           </a>
-          <a href="https://www.instagram.com/">
-            <img src={ig} alt="" />
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <img src={ig} alt="Instagram" className="social-icon" />
           </a>
-          <a href="#">
-            <img src={fb} alt="" />
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <img src={fb} alt="Twitter" className="social-icon" />
           </a>
-          <br />
-          <p class="text-dark">
-            Follow us on all social media platforms @Vintage Gem Old Money
-            Fits.THANK YOU
-          </p>
         </div>
-        <div class="bg-dark text-center">
-          <b class="text-light">
-            Developed by Amani, &copy;2025 .All rights Reserved
-          </b>
-        </div>
-      </section>
+        <p>
+          Follow us @Vintage Gem Old Money Fits. THANK YOU.
+        </p>
+      </div>
+    </section>
+  
+    <div className="text-center py-3 border-top border-light">
+      <b className="text-light">Developed by Amani, &copy;2025. All Rights Reserved.</b>
     </div>
+  </div>
   );
 }
 export default AboutUs;
