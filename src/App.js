@@ -56,6 +56,7 @@ function App() {
             <Route path="/addproducts" element={<AddProducts />} />
             <Route path="/payment" element={<Payment />} />
             <Route path="/getproducts" element={<GetProducts />} />
+            <Route path="/" element={<GetProducts />} />
             <Route path="/company" element={<Company />} />
             <Route path="/cartcontent" element={<CartContent />} /> {/* ✅ Cart route */}
             <Route path="/Chatbot" element={<Chatbot />} />
