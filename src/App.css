@@ -360,6 +360,34 @@ form input[type="submit"]:hover {
 .vintage-input::placeholder {
   color: #ccc;
 }
+.vintage-card-img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.vintage-card {
+  height: 100%;
+}
+
+.vintage-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.vintage-product-description {
+  font-size: 0.9rem;
+  margin: 10px 0;
+}
+
+.vintage-price {
+  font-weight: bold;
+}
+
+.vintage-button {
+  white-space: nowrap;
+}
 
 .social-icons a {
   margin: 0 8px;
